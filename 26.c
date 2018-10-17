@@ -5,7 +5,6 @@ int reverse_string(char * string)
 	int len = 0;
 	int i;
 	char *p;
-	char *q;
 	char temp;
 	p = string;
 	while (*p != '\0')
@@ -13,15 +12,11 @@ int reverse_string(char * string)
 		len++;
 		p++;
 	}
-	q = p - 1;
-	p = string;
 	for (i = 0; i <= len / 2; i++)
 	{
-		temp = *p;
-		*p = *q;
-		*q = temp;
-		p++;
-		q--;
+		temp = string[i];
+		string[i] = string[len - i - 1];
+		string[len - i - 1] = temp;
 	}
 	return 0;
 }
